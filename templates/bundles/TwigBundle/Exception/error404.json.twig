@@ -1,0 +1,28 @@
+{% extends "front/home.html.twig" %}
+
+{% block navFront %}{% endblock %}
+
+{% block bodyFront %}
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            <div
+                class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex align-items-center justify-content-center p-0">
+                <div>
+                    <div class="bloc-error d-flex justify-content-center">
+                        <h3 class="text-uppercase font-weight-bold position-absolute">Erreur 404</h3>
+                    </div>
+                    <div>
+                        <p class="text-center pt-3">Page non trouvée</p>
+                        <div class=" d-flex justify-content-center">
+                            <a class="btn btn-error pl-4 pr-4" href="/">Accueil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerFront %}{% endblock %}
+
+{% block scriptsFront %}{% endblock %}

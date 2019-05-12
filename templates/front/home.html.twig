@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Elodie Martin | Portfolio - Développeuse Web Full-Stack{% endblock %}</title>
+
+    <!-- Icônes -->
+    <link rel="icon" href="/build/static/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/build/static/apple-icon-120x120.png" /> 
+    <link rel="apple-touch-icon" sizes="152x152" href="/build/static/apple-icon-180x180.png" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+
+
+    <!-- Infos -->
+    <link rel="canonical" href="https://elodie-martin.com/" />
+    <meta name="description" content="Elodie Martin, Développeuse Web - Intégration et développement de site web, développement Full-Stack. Venez découvrir une sélection de mes réalisations en développement web. " />
+    <meta name="keywords"
+        content="Elodie Martin, Martin Elodie, Elodie, Martin, Site, Web, Développement Web, Développement Back-End, Développement Full-Stack, Développement, Back-End, Full-Stack, Webdesign, Intégration, Portfolio, CV">
+    <meta name="author" content="Elodie Martin">
+
+    <meta property="og:title" content="Elodie Martin | Portfolio - Développeuse Web Full-Stack" />
+    <meta property="og:type" content="siteweb" />
+    <meta property="og:description"
+        content="Elodie Martin, Développeuse Web - Intégration et développement de site web, développement Full-Stack. Venez découvrir une sélection de mes réalisations en développement web. " />
+    <meta property="og:url" content="https://elodie-martin.com/" />
+    <meta property="og:image" content="https://elodie-martin.com/build/static/img-og.jpg" />
+    <meta property="og:site_name" content="Elodie Martin | Portfolio - Développeuse Web Full-Stack" />
+
+</head>
+
+<body {% if 'home' in app.request.attributes.get("_route") %}class="body-home" {% else %}{% endif %}>
+
+    {% block navFront %}
+    <nav class="navbar navbar-expand-lg position-fixed nav-front">
+        <button class="btn-navbar-toggler-icon">
+            <span
+                class={% if 'home' in app.request.attributes.get("_route") %} "navbar-toggler-icon navbar-toggler-icon-front"
+                {% else %} "navbar-toggler-icon navbar-toggler-icon-front icon-nav-purple" {% endif %}></span>
+        </button>
+    </nav>
+
+    <div class="bloc-nav position-fixed w-100 h-100 d-flex justify-content-center align-items-center">
+        <i class="fas fa-times close-nav position-absolute"></i>
+        <div class="contenu-bloc-nav">
+
+            <ul class="navbar-nav mr-auto text-uppercase font-weight-bold">
+                <li class="nav-item li-home">
+                    <a class="nav-link" href="/#home">Accueil</a>
+                </li>
+                <li class="nav-item li-skills">
+                    <a class="nav-link" href="/#skills">Compétences</a>
+                </li>
+                <li class="nav-item li-projects">
+                    <a class="nav-link" href="/#projects">Projets</a>
+                </li>
+                <li class="nav-item li-course">
+                    <a class="nav-link" href="/#course">Parcours</a>
+                </li>
+                <li class="nav-item li-contact">
+                    <a class="nav-link" href="/#contact">Contact</a>
+                </li>
+            </ul>
+            <hr>
+
+            <div class="d-flex">
+                {# <a href="#" class="circle-social-network-nav circle-globe-nav mr-3"><i
+                            class="fas fa-globe globe-nav"></i>
+                    </a> #}
+                <a href="https://www.linkedin.com/in/elodie-martin-05b964115/"
+                    class="circle-social-network-nav circle-linkedin-nav mr-3" target="_blank"><i
+                        class="fab fa-linkedin-in linkedin-nav"></i></a>
+                <a href="https://twitter.com/ElodieMartin14" class="circle-social-network-nav circle-twitter-nav mr-3"
+                    target="_blank"><i class="fab fa-twitter twitter-nav"></i></a>
+                <a href="https://github.com/elodiemartin" class="circle-social-network-nav circle-github-nav"
+                    target="_blank"><i class="fab fa-github github-nav"></i></a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block bodyFront %}
+
+    <div class="loader">
+        <div id="loader-content">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <section id="home">
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                <div
+                    class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 d-flex align-items-center justify-content-end p-0">
+                    <img src="/build/static/elodie.jpg" alt="photo-elodie">
+                    <div class="col-home h-100 position-absolute"></div>
+                </div>
+
+                <div
+                    class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 bloc-description d-flex justify-content-center align-items-center">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-11 col-sm-10 col-md-10 col-lg-12 col-xl-12 pl-5 description text-justify">
+                            <h1 class="mb-0">Elodie Martin</h1>
+                            <h2>Développeuse web</h2>
+                            <p class="pt-4">Après deux ans d’études en DUT MMI (Métiers du Multimédia et de l’Internet)
+                                et
+                                une Licence Professionnelle en Webdesign, j'ai travaillé en entreprise dans le domaine
+                                du
+                                graphisme.</p>
+                            <p>J’ai choisi par la suite de me spécialiser dans le web avec une formation, Access Code
+                                School, que je suis actuellement.</p>
+                        </div>
+                        <div class="bloc-home position-absolute">
+                            <h3 class="text-uppercase font-weight-bold">Accueil</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container-fluid">
+            <div class="row pt-5 pt-sm-5 pt-md-5 p-lg-0 p-xl-0">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3">
+                    <!-- <mobile> -->
+                    <div class="bloc-skills-mobile d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                        <h3 class="text-uppercase font-weight-bold position-absolute">Compétences</h3>
+                    </div>
+                    <!-- </mobile> -->
+                    <h2
+                        class="text-center pl-3 pl-sm-3 pl-md-3 pl-lg-0 pl-xl-0 pr-3 pr-sm-3 pr-md-3 pr-lg-0 pr-xl-0 pb-3 pb-sm-3 pb-md-3 pb-lg-5 pb-xl-5">
+                        Développement de sites web, création de sites vitrine, marchands...
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-lg-flex d-xl-flex justify-content-center">
+                    <div
+                        class="col-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                        <div class="bloc-skills">
+                            <h3 class="text-uppercase font-weight-bold position-absolute">Compétences</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3">
+                        <img src="/build/static/competences.jpg" alt="photo-elodie" class="w-100">
+                        <div class="bloc-text-skills position-relative mx-auto ml-1 float-lg-right float-xl-right p-3">
+                            <div class="p-3">
+                                <h4>Développement web</h4>
+                                <p>Développement, intégration de sites internet et responsive design</p>
+                                <div class="d-flex flex-wrap">
+                                    <img src="/build/static/html.svg" alt="img-html">
+                                    <img src="/build/static/css.svg" alt="img-css">
+                                    <img src="/build/static/sass.svg" alt="img-sass">
+                                    <img src="/build/static/javascript.svg" alt="img-javascript">
+                                    <img src="/build/static/php.svg" alt="img-php">
+                                    <img src="/build/static/bootstrap.svg" alt="img-bootstrap">
+                                    <img src="/build/static/twig.svg" alt="img-twig">
+                                    <img src="/build/static/my-sql.svg" alt="img-my-sql">
+                                    <img src="/build/static/wordpress.svg" alt="img-wordpress">
+                                    <img src="/build/static/webpack.svg" alt="img-webpack">
+                                    <img src="/build/static/symfony.svg" alt="img-symfony">
+                                    <img src="/build/static/git.svg" alt="img-git">
+                                    <img src="/build/static/prestashop.svg" alt="img-prestashop">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container-fluid">
+            <div class="row pt-5 pt-sm-5 pt-md-5 p-lg-0 p-xl-0">
+                <!-- <mobile> -->
+                <div class="bloc-projets-mobile d-block d-sm-block d-md-block d-lg-none d-xl-none position-relative">
+                    <h3 class="text-uppercase font-weight-bold position-absolute">Projets</h3>
+                </div>
+                <!-- </mobile> -->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h2 class="text-center pb-0 pb-sm-0 pb-md-5 pb-lg-5 pb-xl-5">Découvrez quelques projets réalisés
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3 col-projets">
+                    <div class="row m-0">
+                        <div
+                            class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-lg-flex d-xl-flex justify-content-center">
+                            <div class="row w-100 m-0 row-projects">
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modalProjets" tabindex="-1" role="dialog"
+                                    aria-labelledby="modalProjets" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+
+                                            <button type="button" class="close position-absolute" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    <div class="row d-flex align-items-center">
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+                                                            <img src="" class="mw-100 img-modal" alt="img-modal">
+
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                            <h4
+                                                                class="text-title font-weight-bold pb-3 pt-4 pt-sm-4 pt-md-4 pt-lg-0 pt-xl-0 pl-2">
+                                                            </h4>
+                                                            <p class="font-weight-bold mb-0">Description :</p>
+                                                            <p class="text-description text-justify"></p>
+                                                            <p class="font-weight-bold mb-0">Technologies
+                                                                utilisées&nbsp;:
+                                                            </p>
+                                                            <p class="text-technologies"></p>
+                                                            <a href=""
+                                                                class="link-modal mr-0 mr-sm-2 mr-md-2 mr-lg-2 mr-xl-2"
+                                                                target="_blank"><i
+                                                                    class="fas fa-link pr-2"></i>Projet</a>
+                                                            <a href=""
+                                                                class="link-github-modal mt-3 mt-sm-0 mt-md-0 mt-lg-0 mt-xl-0"
+                                                                target="_blank"><i
+                                                                    class="fab fa-github pr-2"></i>Github</a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="col-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                    <div class="bloc-projets position-absolute">
+                        <h3 class="text-uppercase font-weight-bold position-absolute">Projets</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="course">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3">
+                    <!-- <mobile> -->
+                    <div class="bloc-course-mobile d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                        <h3 class="text-uppercase font-weight-bold position-absolute">Parcours</h3>
+                    </div>
+                    <!-- </mobile> -->
+                    <h2
+                        class="text-center pl-3 pl-sm-3 pl-md-3 pl-lg-0 pl-xl-0 pr-3 pr-sm-3 pr-md-3 pr-lg-0 pr-xl-0 pb-4">
+                        En savoir plus sur mon parcours, mes
+                        formations, mon expérience professionnelle...</h2>
+                    <div class=" d-flex justify-content-center">
+                        <a class="btn btn-download text-white pl-4 pr-4" href="/build/static/cv.pdf"
+                            target="_blank">Téléchargez CV</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-lg-flex d-xl-flex justify-content-center w-100">
+                    <div
+                        class="col-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3 d-none d-sm-none d-md-none d-lg-block d-xl-blockd-none d-sm-none d-md-none d-lg-block d-xl-block">
+                        <div class="bloc-course">
+                            <h3 class="text-uppercase font-weight-bold position-absolute">Parcours</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11 p-5">
+                        <div class="d-flex justify-content-between flex-wrap circles-course pt-5">
+                        </div>
+                        <div class="part-infos-course">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3">
+                    <!-- <mobile> -->
+                    <div class="bloc-contact-mobile d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                        <h3 class="text-uppercase font-weight-bold position-absolute">Contact</h3>
+                    </div>
+                    <!-- </mobile> -->
+                    <h2
+                        class="text-center pl-3 pl-sm-3 pl-md-3 pl-lg-0 pl-xl-0 pr-3 pr-sm-3 pr-md-3 pr-lg-0 pr-xl-0 pb-3 pb-sm-3 pb-md-3 pb-lg-5 pb-xl-5">
+                        N'hésitez pas à me contacter pour toute information supplémentaire
+                    </h2>
+                </div>
+
+                <div class="row w-100 m-0">
+                    <div class="w-100 d-lg-flex d-xl-flex justify-content-center">
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-contact pl-5 pr-5 pt-5 pb-5">
+
+                            {% if messageEnvoye is defined %}
+                            <div class="d-flex align-items-center justify-content-center message-send">
+                                <div class="text-center ">
+                                    <p>Votre message a bien été envoyé !</p>
+                                </div>
+                            </div>
+                            {% else %}
+                            {{ form_start(formContact) }}
+
+                            {{ form_row(formContact.name, {'label': 'Nom', 'attr': {'class': 'mb-0'} }) }}
+                            {{ form_row(formContact.email, {'label': 'Email', 'attr': {'class': 'mb-0'} }) }}
+                            {{ form_row(formContact.subject, {'label': 'Sujet', 'attr': {'class': 'mb-0'} }) }}
+                            {{ form_row(formContact.message, {'label': 'Message', 'attr': {'class': 'mb-0'} }) }}
+                            {{ form_row(formContact.send, {'label': 'Envoyer', 'attr': {'class': 'pl-4 pr-4 mt-3'} } ) }}
+
+                            {{ form_end(formContact) }}
+                            {% endif %}
+
+                        </div>
+
+                        <div
+                            class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3 d-flex align-items-center">
+                            <div class="pl-4 pr-5">
+                                <h4 class="pt-5 pt-sm-5 pt-md-5 pt-lg-0 pt-xl-0">Me contacter</h4>
+                                <p class="pt-3">Merci de me contacter via le formulaire pour toute demande. Si besoin,
+                                    vous
+                                    pouvez
+                                    me joindre directement par téléphone.</p>
+                                <p class="font-weight-normal"><i class="fas fa-phone"></i> 06 77 10 21 59 <span
+                                        class="adresse-mail"><i
+                                            class="fas fa-at ml-0 ml-sm-4 ml-md-4 ml-lg-4 ml-xl-4 mr-2"></i>contact@elodie-martin.com</span>
+                                </p>
+                                <div class="d-flex pb-5 pb-sm-5 pb-md-5 pb-lg-0 pb-xl-0">
+                                    <a href="https://www.linkedin.com/in/elodie-martin-05b964115/"
+                                        class="circle-social-network-contact circle-linkedin-contact mr-3"
+                                        target="_blank"><i class="fab fa-linkedin-in linkedin-contact"></i></a>
+                                    <a href="https://twitter.com/ElodieMartin14"
+                                        class="circle-social-network-contact circle-twitter-contact mr-3"
+                                        target="_blank"><i class="fab fa-twitter twitter-contact"></i></a>
+                                    <a href="https://github.com/elodiemartin"
+                                        class="circle-social-network-contact circle-github-contact" target="_blank"><i
+                                            class="fab fa-github github-contact"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 p-0 p-sm-0 p-md-0 p-lg-3 p-xl-3 d-none d-sm-none d-md-none d-lg-block d-xl-block">
+                            <div class="bloc-contact position-absolute">
+                                <h3 class="text-uppercase font-weight-bold position-absolute">Contact</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+
+    {% block footerFront %}
+    <footer class="position-relative">
+        <p class="text-center text-white p-3 mb-0">© 2019 - Elodie Martin - Tous droits réservés - <a
+                href={% if 'mentions_legales' in app.request.attributes.get("_route") %} "#"
+                {% else %} "/mentions-legales" {% endif %} class="text-white">Mentions légales</a></p>
+    </footer>
+    {% endblock %}
+
+    {% block scriptsFront %}
+    {% if 'home' in app.request.attributes.get("_route") %}
+    <script src="{{ asset('build/app.js') }}"></script>
+    {% else %}
+    <script src="{{ asset('build/app-light.js') }}"></script>
+    {% endif %}
+    {% endblock %}
+
+</body>
+
+</html>

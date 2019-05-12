@@ -1,0 +1,34 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block title %}Technologies{% endblock %}
+
+{% block titlePage %}
+    Technologies <a href="{{ path('dashboard_technologies_create') }}" class="btn btn-primary btn-link text-white ml-2"><i class="fas fa-plus-circle pr-2"></i> Ajouter</a>
+{% endblock %}
+
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Nom technologie</th>
+                <th scope="col" class="text-center"><i class="fas fa-cogs"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for technologie in technologies %}
+                <tr>
+                    <td class="text-center">{{ technologie.id }}</td>
+                    <td class="text-center">{{ technologie.name }}</td>
+                    <td class="text-center">
+                        <a href="{{ path('dashboard_technologies_edit', {'id': technologie.id}) }}" class="mr-2"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('dashboard_technologies_delete', {'id': technologie.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

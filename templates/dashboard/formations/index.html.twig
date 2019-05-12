@@ -1,0 +1,39 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block title %}Formations{% endblock %}
+
+{% block titlePage %}
+    Formations <a href="{{ path('dashboard_formations_create') }}" class="btn btn-primary btn-link text-white ml-2"><i class="fas fa-plus-circle pr-2"></i> Ajouter</a>
+{% endblock %}
+
+{% block body %}
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Nom formation</th>
+                <th scope="col" class="text-center table-mobile-responsive">Nom école</th>
+                <th scope="col" class="text-center table-mobile-responsive">Année</th>
+                <th scope="col" class="text-center table-lg-responsive">Description</th>
+                <th scope="col" class="text-center"><i class="fas fa-cogs"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formation in formations %}
+                <tr>
+                    <td class="text-center">{{ formation.id }}</td>
+                    <td class="text-center">{{ formation.nameEducation }}</td>
+                    <td class="text-center table-mobile-responsive">{{ formation.nameSchool }}</td>
+                    <td class="text-center table-mobile-responsive">{{ formation.year|date('Y') }}</td>
+                    <td class="text-center table-lg-responsive">{{ formation.content }}</td>
+                    <td class="text-center">
+                        <a href="{{ path('dashboard_formations_edit', {'id': formation.id}) }}" class="mr-2"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('dashboard_formations_delete', {'id': formation.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html  lang="fr" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Login{% endblock %}</title>
+    <link rel="icon" href="/build/static/favicon-back.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/favicon-back-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/favicon-back-16x16.png">
+    <link rel="stylesheet" href="{{ asset('build/back.css') }}">
+</head>
+
+<body class="body-login h-100 d-flex align-items-center">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="card-login col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex justify-content-center">
+                    <div class="col-10 col-sm-10 col-md-8 col-lg-7 col-xl-7">
+                        <div class="d-flex justify-content-center pt-5">
+                            <img src="/build/static/logo.svg" alt="logo" class="logo-login">
+                        </div>
+                        
+                        <h1 class="text-uppercase text-center text-white font-weight-bold pt-3">Connexion</h1>
+                        <hr class="mt-4 mb-4">
+
+                        <form action="{{ path('dashboard_security_login') }}" method="post">
+                            <div class="form-group pt-4 w-100">
+                                <input placeholder="Adresse email" required name="_username" type="text" class="form-control text-white">
+                            </div>
+                            <div class="form-group pt-2">
+                                <input placeholder="Mot de passe" required name="_password" type="password" class="form-control text-white">
+                            </div>
+                            <div class="form-group d-flex justify-content-center pt-3 pb-5">
+                                <button type="submit" class="btn pl-5 pr-5">Valider</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

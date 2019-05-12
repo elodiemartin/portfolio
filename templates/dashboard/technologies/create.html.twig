@@ -1,0 +1,37 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% form_theme formTechnologie 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Technologie{% endblock %}
+
+{% block titlePage %}
+    {% if editMode %}
+        Modification de la technologie
+    {% else %}
+        Ajout d'une technologie
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        {{ form_start(formTechnologie) }}
+
+        {{ form_row(formTechnologie.name, {'label': 'Nom de la technologie', 'attr': {'placeholder': 'Nom de la technologie'} }) }}
+        
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-link text-white mb-5 mt-3">
+                {% if editMode %}
+                    Enregistrer
+                {% else %}
+                    Valider
+                {% endif %}
+            </button>
+        </div>
+
+        {{ form_end(formTechnologie) }}
+
+    </div>
+
+{% endblock %}

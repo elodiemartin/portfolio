@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% form_theme formExperience 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Expériences{% endblock %}
+
+{% block titlePage %}
+    {% if editMode %}
+        Modification de l'expérience
+    {% else %}
+            Ajout d'une expérience
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        {{ form_start(formExperience) }}
+
+        {{ form_row(formExperience.title, {'label': 'Titre  de l\'expérience', 'attr': {'placeholder': 'Titre  de l\'expérience'} }) }}
+        {{ form_row(formExperience.nameCompany, {'label': 'Nom de l\'entreprise', 'attr': {'placeholder': 'Nom de l\'entreprise'} }) }}
+        {{ form_row(formExperience.postCode, {'label': 'Code postal de l\'entreprise', 'attr': {'placeholder': 'Code postal de l\'entreprise'} }) }}
+        {{ form_row(formExperience.place, {'label': 'Lieu de l\'entreprise', 'attr': {'placeholder': 'Lieu de l\'entreprise'} }) }}
+        {{ form_row(formExperience.duration, {'label': 'Durée de l\'expérience'}) }}
+        {{ form_row(formExperience.year['year'], {'label': 'Année de l\'expérience', 'attr': {'placeholder': 'Année de l\'expérience'} }) }}
+        {{ form_row(formExperience.year['month'], {'label': false, 'attr': {'style': 'display:none' } }) }}
+        {{ form_row(formExperience.year['day'], {'label': false, 'attr': {'style': 'display:none' } }) }}
+        {{ form_row(formExperience.content, {'label': 'Description de l\'expérience', 'attr': {'placeholder': 'Description de l\'expérience'} }) }}
+
+        
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-link text-white mb-5 mt-3">
+                {% if editMode %}
+                    Enregistrer
+                {% else %}
+                    Valider
+                {% endif %}
+            </button>
+        </div>
+
+        {{ form_end(formExperience) }}
+    
+    </div>
+
+{% endblock %}

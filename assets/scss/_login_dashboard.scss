@@ -1,0 +1,54 @@
+/*Variables couleurs*/
+$white-color: #FFFFFF;
+$blue-color: #313E54;
+
+.body-login {
+    background-color: $blue-color;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card-login {
+        background-color: #3E4C64;
+        border-radius: 25px;
+        
+        .logo-login {
+            width: 70px;
+        }
+
+        hr {
+            border: solid 1px $white-color;
+            width: 120px;
+        }
+
+        input {
+            border: solid 1px $white-color;
+            background-color: transparent;
+            border-radius: 10px;
+            &::placeholder{
+                color: $white-color;
+            }
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+
+        button {
+            background-color: $white-color;
+            color: $blue-color;
+            border-radius: 10px;
+            transition: 0.6s;
+            &:hover {
+                background-color: $blue-color;
+                color: $white-color;
+                transition: 0.6s;
+            }
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+
+    }
+
+}

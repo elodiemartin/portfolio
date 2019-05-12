@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block titlePage %}Accueil{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="card-page col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column text-center mb-5 mr-lg-2 mr-xl-2">
+            <h2 class="text-white text-uppercase font-weight-bold pt-4">Projets</h2>
+            <p class="text-white font-weight-bold number">{{ projets | length }}</p>
+            <div class="buttons pb-4 pt-3">
+                <a href="{{ path('dashboard_projets') }}" class="btn btn-primary btn-link text-white"><i class="fas fa-external-link-alt"></i>
+                    Aller à</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="card-page col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column text-center mb-5 mr-lg-2 mr-xl-2">
+            <h2 class="text-white text-uppercase font-weight-bold pt-4">Technologies</h2>
+            <p class="text-white font-weight-bold number">{{ technologies | length }}</p>
+            <div class="buttons pb-4 pt-3">
+                <a href="{{ path('dashboard_technologies') }}" class="btn btn-primary btn-link text-white"><i class="fas fa-external-link-alt"></i>
+                    Aller à</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="card-page col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column text-center mb-5 mr-lg-2 mr-xl-2">
+            <h2 class="text-white text-uppercase font-weight-bold pt-4">Formations</h2>
+            <p class="text-white font-weight-bold number">{{ formations | length }}</p>
+            <div class="buttons pb-4 pt-3">
+                <a href="{{ path('dashboard_formations') }}" class="btn btn-primary btn-link text-white"><i class="fas fa-external-link-alt"></i>
+                    Aller à</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="card-page col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex flex-column text-center mb-5 mr-lg-2 mr-xl-2">
+            <h2 class="text-white text-uppercase font-weight-bold pt-4">Expériences</h2>
+            <p class="text-white font-weight-bold number">{{ experiences | length }}</p>
+            <div class="buttons pb-4 pt-3">
+                <a href="{{ path('dashboard_experience') }}" class="btn btn-primary btn-link text-white"><i class="fas fa-external-link-alt"></i>
+                    Aller à</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

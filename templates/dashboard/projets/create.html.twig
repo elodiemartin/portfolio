@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% form_theme formProjet 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Projet{% endblock %}
+
+{% block titlePage %}
+    {% if editMode %}
+        Modification du projet
+    {% else %}
+        Ajout d'un projet
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        {{ form_start(formProjet) }}
+
+        {{ form_row(formProjet.title, {'label': 'Titre du projet', 'attr': {'placeholder': 'Nom du projet'} }) }}
+        {{ form_row(formProjet.content, {'label': 'Description du projet', 'attr': {'placeholder': 'Description du projet'} }) }}
+        {{ form_row(formProjet.link, {'label': 'Lien du projet', 'attr': {'placeholder': 'Lien du projet'} }) }}
+        {{ form_row(formProjet.picture, {'label': 'Image du projet', 'attr': {'placeholder': 'Lien de l\'image du projet'} }) }}
+        {{ form_row(formProjet.technologies, {'label': 'Technologies utilisées'} ) }}
+        {{ form_row(formProjet.github, {'label': 'Lien du github', 'attr': {'placeholder': 'Lien du github'} }) }}
+
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-link text-white mb-5 mt-3">
+                {% if editMode %}
+                    Enregistrer
+                {% else %}
+                    Valider
+                {% endif %}
+            </button>
+        </div>
+
+        {{ form_end(formProjet) }}
+
+    </div>
+
+{% endblock %}

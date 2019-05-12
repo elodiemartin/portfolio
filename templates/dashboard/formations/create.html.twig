@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% form_theme formFormation 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block titlePage %}
+    {% if editMode %}
+        Modification de la formation
+    {% else %}
+        Ajout d'une formation
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        {{ form_start(formFormation) }}
+
+        {{ form_row(formFormation.nameEducation, {'label': 'Nom de la formation', 'attr': {'placeholder': 'Nom de la formation'} }) }}
+        {{ form_row(formFormation.nameSchool, {'label': 'Nom de l\'école', 'attr': {'placeholder': 'Nom de l\'école'} }) }}
+        {{ form_row(formFormation.postCode, {'label': 'Code postal de la formation', 'attr': {'placeholder': 'Code postal de la formation'} }) }}
+        {{ form_row(formFormation.place, {'label': 'Lieu de la formation', 'attr': {'placeholder': 'Lieu de la formation'} }) }}
+        {{ form_row(formFormation.specialty, {'label': 'Spécialité de la formation (facultatif)', 'attr': {'placeholder': 'Spécialité de la formation'} }) }}
+        {{ form_row(formFormation.year['year'], {'label': 'Année d\'obtention de la formation', 'attr': {'placeholder': 'Année d\'obtention de la formation'} }) }}
+        {{ form_row(formFormation.year['month'], {'label': false, 'attr': {'style': 'display:none' } }) }}
+        {{ form_row(formFormation.year['day'], {'label': false, 'attr': {'style': 'display:none' } }) }}
+        {{ form_row(formFormation.content, {'label': 'Description de la formation', 'attr': {'placeholder': 'Description de la formation'} }) }}
+
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-link text-white mb-5 mt-3">
+                {% if editMode %}
+                    Enregistrer
+                {% else %}
+                    Valider
+                {% endif %}
+            </button>
+        </div>
+
+        {{ form_end(formFormation) }}
+
+    </div>
+
+{% endblock %}

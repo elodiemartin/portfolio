@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('build/back.css') }}">
+
+    <!-- Icônes -->
+    <link rel="icon" href="/build/static/favicon-back.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/build/static/favicon-back-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/build/static/favicon-back-16x16.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/build/static/apple-icon-120x120-back.png" /> 
+    <link rel="apple-touch-icon" sizes="152x152" href="/build/static/apple-icon-180x180-back.png" />
+
+</head>
+
+<body class="body-dashboard">
+    <div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+        <div class="container mw-100">
+            <div class="row">
+
+                {# Navigation verticale #}
+                <nav id="sidebar" class="col-lg-3 col-xl-2 min-vh-100 position-fixed p-0 h-100">
+                    <ul class="list-unstyled">
+                        <li class="change-active-home">
+                            <a href="{{ path('dashboard') }}"><img src="/build/static/logo.svg" alt="logo" class="logo-sidebar"> Accueil</a>
+                        </li>
+                        <li class="change-active-projets">
+                            <a href="{{ path('dashboard_projets') }}"><i class="fas fa-laptop pr-2"></i> Projets</a>
+                        </li>
+                        <li class="change-active-technologies">
+                            <a href="{{ path('dashboard_technologies') }}"><i class="fas fa-cogs pr-2"></i>
+                                Technologies</a>
+                        </li>
+                        <li class="change-active-formations">
+                            <a href="{{ path('dashboard_formations') }}"><i class="fas fa-graduation-cap pr-2"></i>
+                                Formations</a>
+                        </li>
+                        <li class="change-active-experience">
+                            <a href="{{ path('dashboard_experience') }}"><i class="fas fa-suitcase pr-2"></i>
+                                Expériences</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                {# Contenu page #}
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-10 position-absolute contenu-page-dashboard p-0">
+                    {# Navbar haut #}
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary nav-top position-fixed w-100">
+                        <button class="navbar-toggler button-nav-top-dashboard" type="button">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse position-fixed navbar-collapse-sign-out d-block" id="navbarColor01">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {% for user in users %}
+                                            {{ user.username }}
+                                        {% endfor %}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a href="{{ path('dashboard_security_logout') }}" class="nav-link text-center">
+                                            <i class="fas fa-sign-out-alt pr-1"></i> Déconnexion
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    {# Contenu #}
+
+                    <div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-11 col-xl-11 container-content-dashboard">
+                        <div class="pl-3 pr-3">
+                            <h1 class="pt-5 font-weight-bold">{% block titlePage %}{% endblock %}</h1>
+
+                            <div class="row mt-5">
+                                {% block body %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('build/back.js') }}"></script>
+
+</body>
+
+</html>
