@@ -3,6 +3,8 @@ getDataParcours();
 
 const loader = document.querySelector('.loader');
 const body = document.querySelector('body');
+const photoElodie = document.querySelector('.photo-elodie');
+const descriptionHome = document.querySelector('.description');
 
 function getDataProjets() {
     fetch("/api/projets")
@@ -58,6 +60,21 @@ function getDataProjets() {
                     linkProject.appendChild(textLinkProject);
                     divProjet.appendChild(titleProject);
                     titleProject.appendChild(textTitleProject);
+
+                    // divContent.addEventListener('click', function () {
+                    //     const contentOverlay = this.parentNode.querySelector('.content-overlay');
+                    //     const contentDetails = this.parentNode.querySelector('.content-details');
+                    //     contentOverlay.style.opacity = '1';
+                    //     contentDetails.style.opacity = '1';
+                    // });
+
+                    // document.addEventListener('touchstart', function (e) {
+                    //     console.log(event.target);
+                    //     const contentOverlay = this.parentNode.querySelector('.content-overlay');
+                    //     const contentDetails = this.parentNode.querySelector('.content-details');
+                    //     contentOverlay.style.opacity = '0';
+                    //     contentDetails.style.opacity = '0';
+                    // });
 
                     const allButtonProject = document.querySelectorAll('.btn-projet');
                     allButtonProject[i].addEventListener('click', function () {
@@ -151,7 +168,6 @@ function getDataParcours() {
                                 const spanNumber = document.createElement('span');
                                 spanNumber.classList.add('d-flex', 'justify-content-center', 'align-items-center', 'h-100', 'text-center', 'font-weight-bold', 'mt-1', 'span-number');
                                 const textYear = document.createTextNode(item);
-                                spanNumber.style.userSelect = 'none';
                                 const circles = document.querySelector('.circles-course');
                                 circles.appendChild(circle);
                                 circle.appendChild(number);
@@ -346,7 +362,7 @@ function getDataParcours() {
                             }
 
                             displayLoader();
-
+                            displayContentHome();
                         }))
             })
 
@@ -356,4 +372,20 @@ function getDataParcours() {
 function displayLoader() {
     loader.style.display = 'none';
     body.style.overflowY = 'scroll';
+}
+
+//Affichage accueil avec animations
+function displayContentHome() {
+    photoElodie.style.display = 'initial';
+    descriptionHome.style.display = 'initial';
+    setTimeout(function() { 
+        photoElodie.style.left = '0';
+        photoElodie.style.opacity = '1';
+        photoElodie.style.transition = '1s';
+        setTimeout(function() { 
+            descriptionHome.style.right = '0';
+            descriptionHome.style.opacity = '1';        
+            descriptionHome.style.transition = '1s'; 
+        }, 1000); 
+    }, 200); 
 }

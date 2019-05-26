@@ -47,12 +47,52 @@ circleGithubContact.addEventListener('mouseout', function () {
 });
 
 //Changement couleur icône menu home au scroll
-document.addEventListener('scroll', function() {
+document.addEventListener('scroll', function () {
     let scrollPosition = window.scrollY;
 
     if (scrollPosition >= sectionHome && scrollPosition < sectionSkills) {
         iconMenu.classList.remove('icon-nav-purple');
     } else if (scrollPosition > sectionSkills) {
         iconMenu.classList.add('icon-nav-purple');
+    }
+});
+
+//Affichage des competences avec animations au scroll
+document.addEventListener('scroll', function animateSkills() {
+    let scrollTop = window.scrollY + window.innerHeight;
+    const divSkills = document.querySelector('#skills');
+    let distanceTop = divSkills.offsetTop;
+    if (scrollTop >= distanceTop + 200) {
+        divSkills.style.top = '0';
+        divSkills.style.opacity = '1';
+        divSkills.style.transition = '0.6s';
+    }
+});
+
+//Affichage des projets avec animations au scroll
+document.addEventListener('scroll', function animateProject() {
+    let scrollTop = window.scrollY + window.innerHeight;
+    const allProjects = document.querySelectorAll('.projet-img');
+    const divProjet = document.querySelector('#projects').offsetTop;
+
+    for (let i = 0; i < allProjects.length; i++) {
+        let distanceTop = allProjects[i].offsetTop + divProjet;
+        if (scrollTop >= distanceTop + 200) {
+            allProjects[i].style.top = '0';
+            allProjects[i].style.opacity = '1';
+            allProjects[i].style.transition = '0.6s';
+        }
+    }
+});
+
+//Affichage des competences avec animations au scroll
+document.addEventListener('scroll', function animateCourse() {
+    let scrollTop = window.scrollY + window.innerHeight;
+    const divCourse = document.querySelector('.course-content');
+    let distanceTop = divCourse.offsetTop;
+    if (scrollTop >= distanceTop + 200) {
+        divCourse.style.top = '0';
+        divCourse.style.opacity = '1';
+        divCourse.style.transition = '0.6s';
     }
 });

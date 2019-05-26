@@ -13,7 +13,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ApiResource(
  *  attributes={
- *         "normalization_context"={"groups"={"read"}},
+ *         "normalization_context"={"groups"={"read"}}
+ *     },
+ *       collectionOperations={
+ *         "get"
+ *     },
+ *      itemOperations={
+ *          "get"
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Repository\TechnologieRepository")
